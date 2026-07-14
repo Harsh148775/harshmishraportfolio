@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsh Mishra — Accounting &amp; Financial Technology</title>
+<meta name="description" content="Harsh Mishra — Accounting &amp; Finance graduate specializing in Financial Technology and Data Analytics. Internship experience in financial reporting, taxation, ledger reconciliation, and business analytics, using Excel, Power BI, Tally Prime, and AI automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF8F1;
+    --paper-dim:#F3EEE2;
+    --ink:#1C2541;
+    --ink-soft:#4A5268;
+    --ledger:#1B4332;
+    --ledger-deep:#0E241B;
+    --brass:#AD8A52;
+    --debit:#9C3B3B;
+    --rule: rgba(28,37,65,0.14);
+    --rule-strong: rgba(28,37,65,0.28);
+    --radius: 2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--brass); color:var(--paper);}
+  a{color:inherit; text-decoration:none;}
+  h1,h2,h3{font-family:'Fraunces',serif; margin:0; font-weight:500; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,248,241,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:1040px; margin:0 auto; padding:18px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  @media(max-width:640px){.nav-inner{padding:16px 20px;}}
+  .brand{font-family:'Fraunces',serif; font-weight:600; font-size:19px; display:flex; align-items:baseline; gap:8px;}
+  .brand .dot{color:var(--ledger); font-family:'IBM Plex Mono',monospace; font-size:14px;}
+  nav.links{display:flex; gap:28px;}
+  nav.links a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-soft);
+    padding-bottom:3px;
+    border-bottom:1px solid transparent;
+    transition:color .2s, border-color .2s;
+  }
+  nav.links a:hover, nav.links a:focus-visible{color:var(--ledger); border-color:var(--ledger);}
+  .nav-toggle{display:none;}
+  @media(max-width:720px){
+    nav.links{
+      position:fixed; inset:60px 0 auto 0; background:var(--paper);
+      flex-direction:column; padding:20px 24px; gap:16px;
+      border-bottom:1px solid var(--rule);
+      transform:translateY(-8px); opacity:0; pointer-events:none;
+      transition:transform .2s, opacity .2s;
+    }
+    nav.links.open{transform:translateY(0); opacity:1; pointer-events:auto;}
+    .nav-toggle{
+      display:block; background:none; border:1px solid var(--rule-strong);
+      border-radius:var(--radius); padding:8px 12px; font-family:'IBM Plex Mono',monospace;
+      font-size:12px; color:var(--ink); cursor:pointer;
+    }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.3fr .7fr; gap:56px; align-items:center;
+  }
+  @media(max-width:800px){.hero-grid{grid-template-columns:1fr; gap:40px;}}
+  .hero h1{
+    font-size:clamp(38px,5.5vw,60px);
+    line-height:1.04;
+    margin-top:14px;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--ledger);
+  }
+  .hero .role{
+    margin-top:18px;
+    font-size:17px;
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+  .hero .role strong{color:var(--ink); font-weight:600;}
+  .hero-cta{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px; letter-spacing:.05em; text-transform:uppercase;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s, background .15s, color .15s;
+  }
+  .btn-primary{background:var(--ledger); color:var(--paper);}
+  .btn-primary:hover{background:var(--ledger-deep); transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--rule-strong); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ledger); color:var(--ledger); transform:translateY(-1px);}
+
+  .portrait-frame{
+    position:relative;
+    border:1px solid var(--rule-strong);
+    background:var(--paper-dim);
+    padding:10px;
+  }
+  .portrait-frame img{
+    display:block; width:100%; aspect-ratio:4/5; object-fit:cover;
+    filter:grayscale(45%) contrast(1.02);
+  }
+  .portrait-frame::after{
+    content:"FIG. 01 — H. MISHRA";
+    position:absolute; bottom:-13px; left:18px;
+    background:var(--paper); padding:0 8px;
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- LEDGER STRIP (signature element) ---------- */
+  .ledger-strip{
+    background:var(--ledger);
+    color:var(--paper);
+    border-top:1px solid var(--ledger-deep);
+    border-bottom:1px solid var(--ledger-deep);
+  }
+  .ledger-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+  }
+  .ledger-cell{
+    padding:22px 26px;
+    border-right:1px solid rgba(251,248,241,0.16);
+  }
+  .ledger-cell:last-child{border-right:none;}
+  .ledger-cell .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:26px; font-weight:600; letter-spacing:-0.01em;
+  }
+  .ledger-cell .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:rgba(251,248,241,0.65);
+    margin-top:6px;
+  }
+  @media(max-width:720px){
+    .ledger-row{grid-template-columns:repeat(2,1fr);}
+    .ledger-cell:nth-child(2){border-right:none;}
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:80px 0;}
+  section.alt{background:var(--paper-dim);}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:44px;
+    border-bottom:1px solid var(--rule-strong); padding-bottom:18px;
+  }
+  .section-head h2{font-size:30px;}
+  .section-head .idx{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--brass);}
+
+  /* About */
+  .about-lead{font-size:18px; color:var(--ink-soft); max-width:70ch; margin-bottom:48px;}
+  .about-lead strong{color:var(--ink);}
+
+  .timeline{border-top:1px solid var(--rule);}
+  .tl-item{
+    display:grid; grid-template-columns:180px 1fr; gap:24px;
+    padding:26px 0; border-bottom:1px solid var(--rule);
+  }
+  @media(max-width:640px){.tl-item{grid-template-columns:1fr;}}
+  .tl-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); letter-spacing:.03em;}
+  .tl-role{font-family:'Fraunces',serif; font-size:19px; font-weight:600;}
+  .tl-org{color:var(--ledger); font-weight:600; font-size:14px; margin-top:2px;}
+  .tl-desc{margin-top:10px; color:var(--ink-soft); font-size:14.5px; max-width:64ch;}
+  .tl-stats{margin-top:12px; display:flex; gap:18px; flex-wrap:wrap;}
+  .tl-stat{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ledger);}
+  .tl-stat .n{font-weight:600;}
+
+  .edu-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--rule); margin-top:8px;}
+  @media(max-width:800px){.edu-grid{grid-template-columns:1fr;}}
+  .edu-card{background:var(--paper); padding:26px;}
+  section.alt .edu-card{background:var(--paper-dim);}
+  .edu-card h3{font-size:16px; line-height:1.35;}
+  .edu-card .org{font-size:13px; color:var(--ink-soft); margin-top:6px;}
+  .edu-card .yr{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--brass); margin-top:10px; letter-spacing:.05em;}
+
+  /* Projects */
+  .proj-list{border-top:1px solid var(--rule-strong);}
+  .proj-item{
+    display:grid; grid-template-columns:64px 1fr; gap:24px;
+    padding:32px 0; border-bottom:1px solid var(--rule);
+  }
+  @media(max-width:640px){.proj-item{grid-template-columns:1fr; gap:8px;}}
+  .proj-num{font-family:'IBM Plex Mono',monospace; font-size:26px; color:var(--rule-strong); font-weight:600;}
+  .proj-title{font-family:'Fraunces',serif; font-size:21px; font-weight:600; margin-bottom:8px;}
+  .proj-desc{color:var(--ink-soft); font-size:14.5px; max-width:66ch;}
+  .proj-tags{margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+    border:1px solid var(--rule-strong); padding:4px 9px; border-radius:var(--radius); color:var(--ink-soft);
+  }
+
+  /* Certificates */
+  .cert-table{border-top:1px solid var(--rule-strong); font-size:14.5px;}
+  .cert-row{
+    display:grid; grid-template-columns:1fr 1fr 110px; gap:16px;
+    padding:15px 0; border-bottom:1px solid var(--rule); align-items:baseline;
+  }
+  @media(max-width:640px){.cert-row{grid-template-columns:1fr; gap:2px; padding:14px 0;}}
+  .cert-name{font-weight:600;}
+  .cert-org{color:var(--ink-soft);}
+  .cert-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--brass); text-align:right;}
+  @media(max-width:640px){.cert-date{text-align:left;}}
+
+  /* Achievements */
+  .ach-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule-strong); border:1px solid var(--rule-strong);}
+  @media(max-width:760px){.ach-grid{grid-template-columns:1fr;}}
+  .ach-card{background:var(--paper); padding:30px;}
+  .ach-card .eyebrow{margin-bottom:10px;}
+  .ach-card h3{font-size:18px; line-height:1.3; margin-bottom:6px;}
+  .ach-card .org{font-size:13px; color:var(--ink-soft); margin-bottom:14px;}
+  .ach-card p{font-size:14px; color:var(--ink-soft); margin:0;}
+
+  /* Contact / Footer */
+  .contact-inner{
+    display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:end;
+  }
+  @media(max-width:760px){.contact-inner{grid-template-columns:1fr; gap:32px;}}
+  .contact-inner h2{font-size:clamp(30px,4vw,44px); line-height:1.1;}
+  .contact-links{display:flex; flex-direction:column; gap:14px;}
+  .contact-links a{
+    font-family:'IBM Plex Mono',monospace; font-size:14px;
+    border-bottom:1px solid var(--rule-strong); padding-bottom:10px;
+    display:flex; justify-content:space-between;
+  }
+  .contact-links a:hover{color:var(--ledger); border-color:var(--ledger);}
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding:26px 0;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft);
+  }
+  @media(max-width:600px){footer{flex-direction:column; gap:8px; text-align:center;}}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">Harsh Mishra <span class="dot">·</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">MENU</button>
+    <nav class="links" id="navLinks">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Accounting &amp; Financial Technology</div>
+        <h1>Ledgers meet <em>algorithms.</em></h1>
+        <p class="role">I'm <strong>Harsh Mishra</strong>, an accounting and finance graduate who builds technology-driven financial solutions — combining reporting, taxation, and reconciliation expertise with Excel, Power BI, Tally Prime, and AI automation to make numbers move faster and lie less.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="#projects">View projects</a>
+        </div>
+      </div>
+      <div class="portrait-frame reveal">
+        <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/ACHe0d3VPWxmtHItRbul57d0Do2l3FNSnZNjTKBI_q5yNX4Knj_ZC-VFm0UVu1uqmraoaI0D47mpHQOaKxfUtxItJoXCNl1rHo7ORhARYro4qtLb-nGX8r1uqel1iqzv3S7Ae20pQk24mbVw4r_bYIPRPu1ReO8lk9UTf6u51CTLyUQr3hZvo_w_9O1l2O-rQD-2pYvzLlOu801DfRAbwV-WPpBISopbL5eniZc9vFLOd74=w1280" alt="Portrait of Harsh Mishra" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- LEDGER STAT STRIP -->
+  <div class="ledger-strip">
+    <div class="wrap">
+      <div class="ledger-row">
+        <div class="ledger-cell"><div class="num">6 mo</div><div class="label">Accounting Experience</div></div>
+        <div class="ledger-cell"><div class="num">4</div><div class="label">Applied Projects</div></div>
+        <div class="ledger-cell"><div class="num">12+</div><div class="label">Certifications</div></div>
+        <div class="ledger-cell"><div class="num">2</div><div class="label">Research Papers</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><span class="idx mono">01</span><h2>About</h2></div>
+
+      <p class="about-lead reveal">I'm pursuing an <strong>M.Com in Financial Technology</strong> while completing a <strong>B.Voc in Accounting &amp; Finance (Research)</strong>. I enjoy combining accounting knowledge with modern technology to automate financial processes, improve reporting accuracy, and generate meaningful business insights — building solutions that reduce manual effort while supporting better decisions through data.</p>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-date mono">May 2025 – Jul 2025<br>Jun 2024 – Aug 2024<br>Jun 2023 – Aug 2023</div>
+          <div>
+            <div class="tl-role">Accountant</div>
+            <div class="tl-org">Deepanshu Goel &amp; Associates</div>
+            <p class="tl-desc">Accounting, taxation, auditing, financial reporting, ledger reconciliation, and compliance across multiple client accounts. Built an automated financial statement system using Tally Prime, Excel, ODBC, and Power BI.</p>
+            <div class="tl-stats">
+              <span class="tl-stat"><span class="n">+20%</span> reporting efficiency</span>
+              <span class="tl-stat"><span class="n">93%</span> ledger accuracy</span>
+              <span class="tl-stat"><span class="n">99%</span> automated reporting accuracy</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-date mono">Jan 2025 – Jun 2025</div>
+          <div>
+            <div class="tl-role">Research Intern</div>
+            <div class="tl-org">SHD Research Foundation</div>
+            <p class="tl-desc">Community development and tribal research — survey analysis, statistical reporting, dashboard development, and data visualization using Excel, Power Query, and Power BI.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-date mono">Apr 2024 – Jan 2025</div>
+          <div>
+            <div class="tl-role">Business Accounting &amp; Taxation Intern</div>
+            <div class="tl-org">Henry Harvin Education</div>
+            <p class="tl-desc">Accounting, payroll, taxation, financial reporting, Power BI dashboards, and Excel-based business analytics on simulated business projects.</p>
+            <div class="tl-stats">
+              <span class="tl-stat"><span class="n">10+</span> GST/ITR filings</span>
+              <span class="tl-stat"><span class="n">15+</span> reports &amp; dashboards</span>
+              <span class="tl-stat"><span class="n">-30%</span> payroll errors</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-date mono">Dec 2024</div>
+          <div>
+            <div class="tl-role">Campus Ambassador</div>
+            <div class="tl-org">Wayspire</div>
+            <p class="tl-desc">Promoted career development programs and engaged students through online and offline outreach campaigns — reached 80+ students.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3>M.Com — Financial Technology</h3>
+          <div class="org">Amity University Online</div>
+          <div class="yr">2025 – 2027 · Pursuing</div>
+        </div>
+        <div class="edu-card">
+          <h3>B.Com Programme</h3>
+          <div class="org">School of Open Learning, University of Delhi</div>
+          <div class="yr">2022 – 2025 · 70.01%</div>
+        </div>
+        <div class="edu-card">
+          <h3>CMA Foundation</h3>
+          <div class="org">Institute of Cost Accountants of India (ICMAI)</div>
+          <div class="yr">Dec 2022 · 63.75%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="alt">
+    <div class="wrap">
+      <div class="section-head"><span class="idx mono">02</span><h2>Projects</h2></div>
+      <div class="proj-list">
+
+        <div class="proj-item reveal">
+          <div class="proj-num">01</div>
+          <div>
+            <div class="proj-title">Automated Financial Statement Preparation System</div>
+            <p class="proj-desc">An automated financial reporting solution integrating Tally Prime, Excel, ODBC connectivity, and Power BI — extracts accounting data, processes it, and generates presentation-ready financial statements with interactive dashboards.</p>
+            <div class="proj-tags"><span class="tag">Tally Prime</span><span class="tag">Excel</span><span class="tag">ODBC</span><span class="tag">Power BI</span></div>
+          </div>
+        </div>
+
+        <div class="proj-item reveal">
+          <div class="proj-num">02</div>
+          <div>
+            <div class="proj-title">Census Data Analysis Dashboard</div>
+            <p class="proj-desc">Interactive dashboards analyzing survey and census data — helping researchers identify trends, monitor indicators, and communicate findings to stakeholders through visual insight.</p>
+            <div class="proj-tags"><span class="tag">Power BI</span><span class="tag">Data Visualization</span></div>
+          </div>
+        </div>
+
+        <div class="proj-item reveal">
+          <div class="proj-num">03</div>
+          <div>
+            <div class="proj-title">Excel-Based Payroll Management System</div>
+            <p class="proj-desc">An automated payroll system simplifying salary calculations and processing, reducing manual errors while improving consistency and reporting accuracy.</p>
+            <div class="proj-tags"><span class="tag">Excel</span><span class="tag">Automation</span></div>
+          </div>
+        </div>
+
+        <div class="proj-item reveal">
+          <div class="proj-num">04</div>
+          <div>
+            <div class="proj-title">Women Entrepreneurship Empowerment Initiative</div>
+            <p class="proj-desc">Field research, financial awareness campaigns, and workshops on financial inclusion — studying socio-economic challenges faced by marginalized women and access to Government of India microcredit schemes.</p>
+            <div class="proj-tags"><span class="tag">Field Research</span><span class="tag">Financial Inclusion</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="wrap">
+      <div class="section-head"><span class="idx mono">03</span><h2>Certificates</h2></div>
+      <div class="cert-table reveal">
+        <div class="cert-row"><div class="cert-name">McKinsey.org Forward Program</div><div class="cert-org">McKinsey.org</div><div class="cert-date">Jun 2026</div></div>
+        <div class="cert-row"><div class="cert-name">Advance Certificate in Career Readiness</div><div class="cert-org">Amity University Online</div><div class="cert-date">Mar 2026</div></div>
+        <div class="cert-row"><div class="cert-name">Financial Literacy Program</div><div class="cert-org">NISM &amp; SBI Securities</div><div class="cert-date">Feb 2026</div></div>
+        <div class="cert-row"><div class="cert-name">Communication and Soft Skills</div><div class="cert-org">ICMAI (NPTEL)</div><div class="cert-date">Jan 2026</div></div>
+        <div class="cert-row"><div class="cert-name">Effective Communication</div><div class="cert-org">Webveda (Ankur Warikoo)</div><div class="cert-date">Jan 2026</div></div>
+        <div class="cert-row"><div class="cert-name">BFSI Skill Competency Certificate</div><div class="cert-org">Sector Skill Council of India</div><div class="cert-date">Sep 2025</div></div>
+        <div class="cert-row"><div class="cert-name">Business Development Executive (Grade A)</div><div class="cert-org">Tata STRIVE &amp; HDB Financial Services Ltd.</div><div class="cert-date">Jul 2025</div></div>
+        <div class="cert-row"><div class="cert-name">Bootcamp on Artificial Intelligence</div><div class="cert-org">NIELIT</div><div class="cert-date">Jan 2025</div></div>
+        <div class="cert-row"><div class="cert-name">Certified Business Accounting and Taxation</div><div class="cert-org">Henry Harvin Education</div><div class="cert-date">Sep 2024</div></div>
+        <div class="cert-row"><div class="cert-name">Data Analytics &amp; Visualization</div><div class="cert-org">Accenture (Forage)</div><div class="cert-date">Jul 2024</div></div>
+        <div class="cert-row"><div class="cert-name">Excel Skills</div><div class="cert-org">JPMorgan Chase &amp; Co. (Forage)</div><div class="cert-date">Mar 2024</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" class="alt">
+    <div class="wrap">
+      <div class="section-head"><span class="idx mono">04</span><h2>Achievements</h2></div>
+      <div class="ach-grid">
+
+        <div class="ach-card reveal">
+          <div class="eyebrow">Mar 2024</div>
+          <h3>Retail Management Conference Facilitator</h3>
+          <div class="org">National Conference</div>
+          <p>Coordinated with 40+ researchers to compile profiles, managed logistics and documentation, and ensured smooth communication between participants and organizers.</p>
+        </div>
+
+        <div class="ach-card reveal">
+          <div class="eyebrow">Jan 2024</div>
+          <h3>Financial Literacy Workshop Facilitator</h3>
+          <div class="org">Independent Initiative</div>
+          <p>Designed and delivered a workshop on budgeting, saving, and money management for 50+ students, coordinating guest speakers and compiling feedback.</p>
+        </div>
+
+        <div class="ach-card reveal">
+          <div class="eyebrow">Sep 2025</div>
+          <h3>Finalist — Research Proposal Ideation Competition</h3>
+          <div class="org">Dr. B.R. Ambedkar University Delhi · Shodhotsav</div>
+          <p>Developed and presented a research proposal addressing a real-world problem, securing a place among the finalists.</p>
+        </div>
+
+        <div class="ach-card reveal">
+          <div class="eyebrow">Feb 2026</div>
+          <h3>Research Paper Presentation</h3>
+          <div class="org">IIM Bodh Gaya</div>
+          <p>Presented research on the development of marginalized women entrepreneurs, focused on financial inclusion and community development.</p>
+        </div>
+
+        <div class="ach-card reveal" style="grid-column: span 2;">
+          <div class="eyebrow">May 2026</div>
+          <h3>Runner-Up — International Research Paper Presentation</h3>
+          <div class="org">ABV IIITM Gwalior · DIGI-SUSTAIN 2026</div>
+          <p>Awarded 2nd Best Paper at the International Conference on Digital Transformative Practices for a Sustainable Future, recognized for research quality, innovation, and presentation.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-inner">
+      <div>
+        <div class="eyebrow">Balance the books, then break new ground</div>
+        <h2>Let's talk finance,<br>technology, or both.</h2>
+      </div>
+      <div class="contact-links reveal">
+        <a href="mailto:your.email@example.com">Email <span>your.email@example.com →</span></a>
+        <a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener">LinkedIn <span>/in/your-linkedin →</span></a>
+        <a href="https://mishraharsh.in" target="_blank" rel="noopener">Website <span>mishraharsh.in →</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> Harsh Mishra. Built with intent, reconciled to the last decimal.</div>
+  <div>mishraharsh.in</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
