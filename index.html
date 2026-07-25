@@ -229,7 +229,16 @@
     font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
     border:1px solid var(--rule-strong); padding:4px 9px; border-radius:var(--radius); color:var(--ink-soft);
   }
-
+.proj-gallery{
+    margin-top:16px; display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:8px;
+  }
+  .proj-gallery a{display:block; overflow:hidden; border-radius:var(--radius); border:1px solid var(--rule-strong); background:var(--paper-dim);}
+  .proj-gallery img{
+    display:block; width:100%; height:110px; object-fit:cover;
+    transition:transform .35s ease, filter .35s ease; filter:grayscale(15%);
+  }
+  .proj-gallery a:hover img{transform:scale(1.06); filter:grayscale(0%);}
+  @media(max-width:640px){.proj-gallery{grid-template-columns:repeat(2,1fr);}}
   /* Certificates */
   .cert-table{border-top:1px solid var(--rule-strong); font-size:14.5px;}
   .cert-row{
@@ -417,6 +426,13 @@
             <div class="proj-title">Automated Financial Statement Preparation System</div>
             <p class="proj-desc">An automated financial reporting solution integrating Tally Prime, Excel, ODBC connectivity, and Power BI — extracts accounting data, processes it, and generates presentation-ready financial statements with interactive dashboards.</p>
             <div class="proj-tags"><span class="tag">Tally Prime</span><span class="tag">Excel</span><span class="tag">ODBC</span><span class="tag">Power BI</span></div>
+            <div class="proj-gallery">
+              <a href="assets/projects/financial-statement-1.png" target="_blank" rel="noopener"><img src="assets/projects/financial-statement-1.png" alt="Automated financial statement dashboard view 1" loading="lazy"></a>
+              <a href="assets/projects/financial-statement-2.png" target="_blank" rel="noopener"><img src="assets/projects/financial-statement-2.png" alt="Automated financial statement dashboard view 2" loading="lazy"></a>
+              <a href="assets/projects/financial-statement-3.png" target="_blank" rel="noopener"><img src="assets/projects/financial-statement-3.png" alt="Automated financial statement dashboard view 3" loading="lazy"></a>
+              <a href="assets/projects/financial-statement-4.png" target="_blank" rel="noopener"><img src="assets/projects/financial-statement-4.png" alt="Automated financial statement dashboard view 4" loading="lazy"></a>
+              <a href="assets/projects/financial-statement-5.png" target="_blank" rel="noopener"><img src="assets/projects/financial-statement-5.png" alt="Automated financial statement dashboard view 5" loading="lazy"></a>
+            </div>
           </div>
         </div>
 
@@ -444,6 +460,12 @@
             <div class="proj-title">Women Entrepreneurship Empowerment Initiative</div>
             <p class="proj-desc">Field research, financial awareness campaigns, and workshops on financial inclusion — studying socio-economic challenges faced by marginalized women and access to Government of India microcredit schemes.</p>
             <div class="proj-tags"><span class="tag">Field Research</span><span class="tag">Financial Inclusion</span></div>
+            <div class="proj-gallery">
+              <a href="assets/projects/women-empowerment-1.jpg" target="_blank" rel="noopener"><img src="assets/projects/women-empowerment-1.jpg" alt="Women entrepreneurship empowerment field research photo 1" loading="lazy"></a>
+              <a href="assets/projects/women-empowerment-2.jpg" target="_blank" rel="noopener"><img src="assets/projects/women-empowerment-2.jpg" alt="Women entrepreneurship empowerment field research photo 2" loading="lazy"></a>
+              <a href="assets/projects/women-empowerment-3.jpg" target="_blank" rel="noopener"><img src="assets/projects/women-empowerment-3.jpg" alt="Women entrepreneurship empowerment field research photo 3" loading="lazy"></a>
+              <a href="assets/projects/women-empowerment-4.jpg" target="_blank" rel="noopener"><img src="assets/projects/women-empowerment-4.jpg" alt="Women entrepreneurship empowerment field research photo 4" loading="lazy"></a>
+            </div>
           </div>
         </div>
 
